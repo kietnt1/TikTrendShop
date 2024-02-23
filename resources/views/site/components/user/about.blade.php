@@ -3,5 +3,5 @@
 @section('title', 'Về chúng tôi')
 
 @section('content')
-    <div>Trang chủ Store</div>
+    <div>Về chúng tôi</div>
 @endsection

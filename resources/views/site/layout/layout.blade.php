@@ -272,7 +272,12 @@
 
         <!-- main content -->
         <div class="main-content right-chat-active">
-            @yield('content')
+            <div class="middle-sidebar-bottom">
+                <div class="middle-sidebar-left">
+                    {{-- lấy sau middle-sidebar-left trở đi --}}
+                    @yield('content')
+                </div>
+            </div>
         </div>
 
         <!-- right chat -->
