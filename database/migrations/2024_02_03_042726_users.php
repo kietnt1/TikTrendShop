@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id_user');
+            $table->increments('id');
             $table->string('user_name', 100)->nullable(false);
             $table->string('full_name', 100)->nullable(false);
             $table->string('email', 255)->nullable(false);
-            $table->string('phone', 13)->nullable(false);
+            $table->string('phone', 13)->nullable(true);
             $table->string('password', 100)->nullable(false);
             $table->tinyInteger('very_email')->nullable(false)->default(0); //1 xác nhận, 0 chưa xác nhận
             $table->tinyInteger('rank')->nullable(false)->default(0); //0 đồng, 1 bạc, 2 vàng, 3 kim cương

@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rooms', function (Blueprint $table) {
-            $table->increments('id_room');
+            $table->increments('id');
             $table->unsignedInteger('id_store')->nullable(false);
             $table->unsignedInteger('id_user')->nullable(false);
             $table->string('name', 100)->nullable(false);
             $table->timestamps();
 
-            $table->foreign('id_user')->references('id_user')->on('users');
-            $table->foreign('id_store')->references('id_store')->on('stores');
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_store')->references('id')->on('stores');
         });
     }
 

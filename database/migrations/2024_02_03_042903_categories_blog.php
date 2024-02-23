@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories_blog', function (Blueprint $table) {
-            $table->increments('id_categories_blog');
+            $table->increments('id');
             $table->unsignedInteger('id_store')->nullable(false);
             $table->string('name', 100)->nullable(false);
             $table->string('description', 255)->nullable();
             $table->tinyInteger('status')->nullable(false)->default(1); //0 ẩn, 1 hiện, 2 xóa
             $table->timestamps();
 
-            $table->foreign('id_store')->references('id_store')->on('stores');
+            $table->foreign('id_store')->references('id')->on('stores');
         });
     }
 

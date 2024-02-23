@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('product_variations', function (Blueprint $table) {
-            $table->increments('id_product_variation');
+            $table->increments('id');
             $table->unsignedInteger('id_product')->nullable(false);
             $table->string('name', 100)->nullable(false);
             $table->integer('quantity')->nullable(false);
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text('image')->nullable(false);
             $table->timestamps();
 
-            $table->foreign('id_product')->references('id_product')->on('products');
+            $table->foreign('id_product')->references('id')->on('products');
         });
     }
 

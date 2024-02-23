@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('stores', function (Blueprint $table) {
-            $table->increments('id_store');
+            $table->increments('id');
             $table->unsignedInteger('id_user')->nullable(false);
             $table->string('name', 100)->nullable(false);
             $table->string('address', 255)->nullable(false);
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('image_arr')->nullable();
             $table->timestamps();
 
-            $table->foreign('id_user')->references('id_user')->on('users');
+            $table->foreign('id_user')->references('id')->on('users');
         });
     }
 
