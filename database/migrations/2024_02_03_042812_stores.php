@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->increments('id_store');
-            $table->unsignedInteger('id_user')->nullable(false);
+            $table->unsignedInteger('id')->nullable(false);
             $table->string('name', 100)->nullable(false);
             $table->string('address', 255)->nullable(false);
             $table->tinyInteger('status')->nullable(false)->default(1); //0 ẩn, 1 hiện
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('image_arr')->nullable();
             $table->timestamps();
 
-            $table->foreign('id_user')->references('id_user')->on('users');
+            $table->foreign('id')->references('id')->on('users');
         });
     }
 

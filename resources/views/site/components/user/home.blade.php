@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('site.layout.layout')
 
 @section('title', 'Trang chủ')
 
