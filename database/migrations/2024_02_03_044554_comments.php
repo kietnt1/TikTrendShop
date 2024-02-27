@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('id_product')->nullable(false);
-            $table->unsignedInteger('id_user')->nullable(false);
+            $table->unsignedInteger('id')->nullable(false);
             $table->text('content')->nullable(false);
             $table->tinyInteger('status')->nullable(false)->default(1); //0 ẩn, 1 hiện
             $table->timestamps();

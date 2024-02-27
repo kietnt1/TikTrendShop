@@ -1,134 +1,27 @@
-<div class="page-main-header">
-    <div class="main-header-right">
-        <div class="main-header-left text-center">
-            <div class="logo-wrapper"><a href="index.html"><img src="../assets/images/logo/logo.png" alt=""></a></div>
-        </div>
-        <div class="vertical-mobile-sidebar"><i class="fa fa-bars sidebar-bar"> </i></div>
-        <div class="nav-right col pull-right right-menu">
-            <ul class="nav-menus">
-                <li>
-                    <form class="form-inline search-form" action="#" method="get">
-                        <div class="form-group">
-                            <div class="Typeahead Typeahead--twitterUsers">
-                                <div class="u-posRelative">
-                                    <input class="Typeahead-input form-control-plaintext" id="demo-input" type="text" name="q" placeholder="Search Your Product...">
-                                    <div class="spinner-border Typeahead-spinner" role="status"><span class="sr-only">Loading...</span></div><span class="d-sm-none mobile-search"><i data-feather="search"></i></span>
-                                </div>
-                                <div class="Typeahead-menu"></div>
-                            </div>
+<header class="shadow-sm " style="height: 80px ">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary h-100">
+        <div class="container-fluid ">
+            <a class="navbar-brand fs-4" href="#">
+                <span class="fw-bold">TickTrendShop</span> | Kênh Người Bán</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
+                                {{ Auth::user()->full_name }}
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Tài khoản</a></li>
+                                <li><a class="dropdown-item" href="{{ route('manager.shop-detail', $store->slug) }}">Cửa hàng</a></li>
+                                <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                            </ul>
                         </div>
-                    </form>
-                </li>
-                <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
-                <li class="onhover-dropdown"><img class="img-fluid img-shadow-warning" src="../assets/images/dashboard/bookmark.png" alt="">
-                    <div class="onhover-show-div bookmark-flip">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="front">
-                                    <ul class="droplet-dropdown bookmark-dropdown">
-                                        <li class="gradient-primary text-center">
-                                            <h5 class="f-w-700">Bookmark</h5><span>Bookmark Icon With Grid</span>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-4 text-center"><i data-feather="file-text"></i></div>
-                                                <div class="col-4 text-center"><i data-feather="activity"></i></div>
-                                                <div class="col-4 text-center"><i data-feather="users"></i></div>
-                                                <div class="col-4 text-center"><i data-feather="clipboard"></i></div>
-                                                <div class="col-4 text-center"><i data-feather="anchor"></i></div>
-                                                <div class="col-4 text-center"><i data-feather="settings"></i></div>
-                                            </div>
-                                        </li>
-                                        <li class="text-center">
-                                            <button class="flip-btn" id="flip-btn">Add New Bookmark</button>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="back">
-                                    <ul>
-                                        <li>
-                                            <div class="droplet-dropdown bookmark-dropdown flip-back-content">
-                                                <input type="text" placeholder="search...">
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <button class="d-block flip-back" id="flip-back">Back</button>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="onhover-dropdown"><img class="img-fluid img-shadow-secondary" src="../assets/images/dashboard/like.png" alt="">
-                    <ul class="onhover-show-div droplet-dropdown">
-                        <li class="gradient-primary text-center">
-                            <h5 class="f-w-700">Grid Dashboard</h5><span>Easy Grid inside dropdown</span>
-                        </li>
-                        <li>
-                            <div class="row">
-                                <div class="col-sm-4 col-6 droplet-main"><i data-feather="file-text"></i><span class="d-block">Content</span></div>
-                                <div class="col-sm-4 col-6 droplet-main"><i data-feather="activity"></i><span class="d-block">Activity</span></div>
-                                <div class="col-sm-4 col-6 droplet-main"><i data-feather="users"></i><span class="d-block">Contacts</span></div>
-                                <div class="col-sm-4 col-6 droplet-main"><i data-feather="clipboard"></i><span class="d-block">Reports</span></div>
-                                <div class="col-sm-4 col-6 droplet-main"><i data-feather="anchor"></i><span class="d-block">Automation</span></div>
-                                <div class="col-sm-4 col-6 droplet-main"><i data-feather="settings"></i><span class="d-block">Settings</span></div>
-                            </div>
-                        </li>
-                        <li class="text-center">
-                            <button class="btn btn-primary btn-air-primary">Follows Up</button>
-                        </li>
-                    </ul>
-                </li>
-                <li class="onhover-dropdown"><img class="img-fluid img-shadow-warning" src="../assets/images/dashboard/notification.png" alt="">
-                    <ul class="onhover-show-div notification-dropdown">
-                        <li class="gradient-primary">
-                            <h5 class="f-w-700">Notifications</h5><span>You have 6 unread messages</span>
-                        </li>
-                        <li>
-                            <div class="media">
-                                <div class="notification-icons bg-success mr-3"><i class="mt-0" data-feather="thumbs-up"></i></div>
-                                <div class="media-body">
-                                    <h6>Someone Likes Your Posts</h6>
-                                    <p class="mb-0"> 2 Hours Ago</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="pt-0">
-                            <div class="media">
-                                <div class="notification-icons bg-info mr-3"><i class="mt-0" data-feather="message-circle"></i></div>
-                                <div class="media-body">
-                                    <h6>3 New Comments</h6>
-                                    <p class="mb-0"> 1 Hours Ago</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="bg-light txt-dark"><a href="#">All </a> notification</li>
-                    </ul>
-                </li>
-                <li><a class="right_side_toggle" href="#"><img class="img-fluid img-shadow-success" src="../assets/images/dashboard/chat.png" alt=""></a></li>
-                <li class="onhover-dropdown ">
-                    <span class="media user-header d-flex justify-content-center  align-items-center ">
-                        <img class="img-fluid" src="{{ $image_thumb }}" alt="">
-                    </span>
-                    <ul class="onhover-show-div profile-dropdown l-0" style="min-width: max-content">
-                        <li class="gradient-primary">
-                            <h5 class="f-w-600 mb-0">{{ $store->name ?? '' }}</h5>
-                        </li>
-                        <li><i data-feather="user"> </i>đăng xuất</li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="d-lg-none mobile-toggle pull-right"><i data-feather="more-horizontal"></i></div>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <script id="result-template" type="text/x-handlebars-template">
-        <div class="ProfileCard u-cf">                        
-        <div class="ProfileCard-avatar"><i class="pe-7s-home"></i></div>
-        <div class="ProfileCard-details">
-        <div class="ProfileCard-realName"></div>
-        </div>
-        </div>
-      </script>
-        <script id="empty-template" type="text/x-handlebars-template"><div class="EmptyMessage">Your search turned up 0 results. This most likely means the backend is down, yikes!</div></script>
-    </div>
-</div>
+    </nav>
+</header>

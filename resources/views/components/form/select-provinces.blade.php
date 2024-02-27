@@ -1,11 +1,11 @@
 <div class="provinces">
     <div class="row">
         <div class="col-12 mb-2">
-            <div class="form-labe">chọ địa chỉ shop </div>
+            <div class="form-labe">Địa nhận nhận hàng</div>
         </div>
         <div class="col-4">
             <x-form.select :name="'address[]'" class="show-select-provinces">
-                <option value="" selected>Tỉnh/TP</option>
+                <option value="" selected> Tỉnh/TP </option>
                 @foreach ($provinces as $province)
                     <option value="{{ $province['name'] ?? '' }}" data-id="{{ $province['id'] }}" {{ !empty($_GET['id_provinces']) && $_GET['id_provinces'] == $province['id'] ? 'selected' : '' }}>{{ $province['name'] }}</option>
                 @endforeach

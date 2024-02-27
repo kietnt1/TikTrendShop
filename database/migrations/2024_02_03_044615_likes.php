@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('likes', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('id_product')->nullable(false);
-            $table->unsignedInteger('id_user')->nullable(false);
+            $table->unsignedInteger('id')->nullable(false);
             $table->tinyInteger('is_like')->nullable(false)->default(0); //0 không like, 1 like
             $table->timestamps();
 

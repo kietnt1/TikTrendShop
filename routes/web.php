@@ -3,6 +3,7 @@
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\ManagerStores\StoresController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,23 +16,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(ComponentController::class)->group(function () {
-    Route::get('render-provinces', 'renderProvinces')->name('components.render-provinces');
-});
-
-
 Route::domain('shop.' . env("APP_DOMAIN"))->group(function () {
     Route::controller(StoresController::class)->group(function () {
         Route::get('/', 'index')->name('manager.shop');
+        Route::get('/store/{slug}', 'detail')->name('manager.shop-detail');
         Route::put('account/edit/{slug}', 'update')->name('manager.update.shop1');
         Route::get('account/update/{slug}', 'formCU')->name('manager.update.shop');
         Route::get('account/register', 'formCU')->name('register.shop');
         Route::post('account/register', 'register')->name('register.shop');
-    })->middleware(['auth']);
+    });
 });
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::controller(ComponentController::class)->group(function () {
+    Route::get('render-provinces', 'renderProvinces')->name('components.render-provinces');
 });
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

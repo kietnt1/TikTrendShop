@@ -28,15 +28,12 @@ class StoresController extends Controller
     }
     function formCU()
     {
-        $store = $this->storesModel->where('id_user', '=', Auth::id())->first();
-        if ($store && !Route::currentRouteNamed('manager.update.shop')) return redirect(route('manager.shop'));
         return view('pages.manage-stores.register', ['store' => $store ?? []]);
     }
     function register(ValidateFormStoreCU $req)
     {
         try {
-            $checkUser = $this->storesModel->where('id_user', '=', Auth::id())->get();
-            if ($checkUser) return redirect(route('manager.shop'));
+
             $this->storesModel->create([
                 'name' => $req->name_shop,
                 'phone' => $req->phone_number,
@@ -49,6 +46,11 @@ class StoresController extends Controller
         } catch (Exception $e) {
             return back()->with(['error' => $e->getMessage()]);
         }
+    }
+    function detail(Request $req, $slug)
+    {
+        $store = $this->storesModel->where('slug', '=', $req->slug)->first();
+        return view('pages.manage-stores.detail', ['store' => $store]);
     }
     function update(ValidateFormStoreCU $req, $slug)
     {

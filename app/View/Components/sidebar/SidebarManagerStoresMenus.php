@@ -24,7 +24,69 @@ class SidebarManagerStoresMenus extends Component
      */
     public function render(): View|Closure|string
     {
-        $store = $this->storeModel->where('id_user', '=', Auth::id())->first();
-        return view('components.sidebar.sidebar-manager-stores-menus', ['store' => $store]);
+        $menus = [
+            [
+                'title' => 'Quản lý sản phẩm',
+                'icon' => '',
+                'url' => '',
+                'id' => 1,
+                'children' => [
+                    [
+                        'title' => 'Tất cả',
+                        'icon' => '',
+                        'url' => '',
+                    ],
+                    [
+                        'title' => 'tạo sản phẩm',
+                        'icon' => '',
+                        'url' => '',
+                    ]
+                ]
+            ],
+            [
+                'id' => 2,
+                'title' => 'quản lý hóa đơn',
+                'icon' => '',
+                'url' => '',
+            ],
+            [
+                'id' => 3,
+                'title' => 'Quản lý bài đăng',
+                'icon' => '',
+                'url' => '',
+                'children' => [
+                    [
+                        'title' => 'Tất cả',
+                        'icon' => '',
+                        'url' => '',
+                    ],
+                    [
+                        'title' => 'tạo bài đăng',
+                        'icon' => '',
+                        'url' => '',
+                    ]
+                ]
+            ],
+            [
+                'id' => 3,
+                'title' => 'Quản lý vorcher',
+                'icon' => '',
+                'url' => '',
+                'children' => [
+                    [
+                        'title' => 'Tất cả',
+                        'icon' => '',
+                        'url' => '',
+                    ],
+                    [
+                        'title' => 'tạo vorcher',
+                        'icon' => '',
+                        'url' => '',
+                    ]
+                ]
+            ],
+        ];
+
+        return view('components.sidebar.sidebar-manager-stores-menus', ['menus' => $menus]);
     }
 }

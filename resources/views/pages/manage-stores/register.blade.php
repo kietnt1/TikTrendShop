@@ -18,10 +18,12 @@
                     @enderror
                 </div>
                 <div class="mt-3">
-                    <x-form.input :name="'phone_number'" :lable="'số điện thoại'" maxlength="30" :value="$store['phone'] ?? ''" />
+                    <x-form.input :type="''" :name="'phone_number'" :lable="'số điện thoại'" maxlength="30" :value="$store['phone'] ?? ''" />
                 </div>
                 @if (empty($store['id']))
-                    <x-form.select-provinces />
+                    <div class="mt-3">
+                        <x-form.select-provinces />
+                    </div>
                 @endif
                 <div class="mt-3">
                     <x-form.textarea :balde="'mổ tả'" :maxlength="250" :name="'description'" :value="$store['description'] ?? ''" />

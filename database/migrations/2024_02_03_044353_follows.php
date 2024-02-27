@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('follows', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('id_store')->nullable(false);
-            $table->unsignedInteger('id_user')->nullable(false);
+            $table->unsignedInteger('id')->nullable(false);
             $table->tinyInteger('is_follow')->nullable(false)->default(0); //0 không follow, 1 follow, default 0
             $table->timestamps();
 

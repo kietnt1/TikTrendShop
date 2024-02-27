@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('id_pay')->nullable(false);
-            $table->unsignedInteger('id_user')->nullable(false);
+            $table->unsignedInteger('id')->nullable(false);
             $table->unsignedInteger('id_store')->nullable(false);
             $table->string('payment_method', 100)->nullable(false);
             $table->date('date')->nullable(false);

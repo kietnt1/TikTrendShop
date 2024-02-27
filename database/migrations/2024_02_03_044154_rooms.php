@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('id_store')->nullable(false);
-            $table->unsignedInteger('id_user')->nullable(false);
+            $table->unsignedInteger('id')->nullable(false);
             $table->string('name', 100)->nullable(false);
             $table->timestamps();
 

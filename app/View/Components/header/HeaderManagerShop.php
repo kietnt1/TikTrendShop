@@ -25,7 +25,7 @@ class HeaderManagerShop extends Component
     public function render(): View|Closure|string
     {
         $store = $this->storeModel->where('id_user', '=', Auth::id())->first();
-        $image_thumb = json_decode($store['image_arr'])[0] ?? asset('images/default/shop.jpeg');
+        $image_thumb = !empty($store) ?? json_decode($store['image_arr'])[0] ?? asset('images/default/shop.jpeg');
         return view('components.header.header-manager-shop', ['store' => $store, 'image_thumb' => $image_thumb]);
     }
 }

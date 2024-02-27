@@ -1,0 +1,21 @@
+body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+}
+
+html {
+    height: -webkit-fill-available;
+}
+
+.background {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.background-image_banner_shop::after {
+    content: "";
+    background-color: black;
+    opacity: 0.3;
+    inset: 0;
+    position: absolute;
+}

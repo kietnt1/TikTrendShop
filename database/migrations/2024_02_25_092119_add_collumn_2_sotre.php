@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('stores', function (Blueprint $table) {
-            $table->bigInteger('coin')->nullable(false)->default(0);
+            $table->bigInteger('coin')->nullable(true)->default(0);
+            $table->string('thumb_url')->nullable(false);
         });
     }
 
